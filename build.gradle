@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'com.woniu'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url "https://maven.aliyun.com/repository/public" }
+    maven { url "https://maven.aliyun.com/repository/jcenter" }
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+allprojects {
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/jcenter" }
+        maven { url "http://oss.jfrog.org/artifactory/oss-snapshot-local" }
+        mavenCentral()
+    }
+}
