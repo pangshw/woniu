@@ -4,6 +4,7 @@ import com.woniu.GeneratorApplication;
 import com.woniu.generator.config.CodeGenerateConfig;
 import com.woniu.generator.domain.dto.MetaDTO;
 import com.woniu.generator.domain.repository.DevMetadataRepository;
+import freemarker.cache.ClassTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.apache.commons.io.IOUtils;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -33,8 +35,14 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
         // step1 创建freeMarker配置实例
         configuration = new Configuration(Configuration.VERSION_2_3_28);
         // step2 获取模版路径
-        String templatePath = GeneratorApplication.class.getClassLoader().getResource("./templates").getPath();
-        configuration.setDirectoryForTemplateLoading(new File(templatePath));
+//        log.info(GeneratorApplication.class.getClassLoader().getResource(".").getPath());
+//        log.info(GeneratorApplication.class.getClassLoader().getResource("." + File.separator + "templates").getPath());
+//        String templatePath = GeneratorApplication.class.getClassLoader().getResource("./templates").getPath();
+//        configuration.setDirectoryForTemplateLoading(new File(templatePath));
+
+        configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
+        configuration.setDefaultEncoding(Charset.forName("UTF-8").name());
+        configuration.setTemplateLoader(new ClassTemplateLoader(CodeGenerateServiceImpl.class,"/templates/"));
     }
 
     /**
