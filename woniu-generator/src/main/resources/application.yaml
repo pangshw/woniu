@@ -1,0 +1,22 @@
+server:
+  port: 8100
+  tomcat:
+    threads:
+      max: 1024
+
+spring:
+  application:
+    name: woniu-generator
+  datasource:
+    driver-class-name: net.sf.log4jdbc.DriverSpy
+    url: jdbc:log4jdbc:mysql://localhost:3306/pm-admin?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+
+mybatis:
+  type-aliases-package: com.woniu.**.entity
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+
+woniu:
+  code-generate:
+    output-path: E:\WorkSpace\pm-admin\tmp

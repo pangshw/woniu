@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniu.generator.infra.mapper.DevMetadataMapper">
+
+    <resultMap type="DevMetadata" id="DevMetadataResult">
+        <result property="id" column="id"/>
+        <result property="version" column="version"/>
+        <result property="name" column="name"/>
+        <result property="tableName" column="table_name"/>
+        <result property="className" column="class_name"/>
+        <result property="packageName" column="package_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <sql id="selectDevMetadataVo">
+        select id, version, name, table_name, class_name, package_name, create_time, update_time from dev_metadata
+    </sql>
+
+    <select id="list" parameterType="DevMetadata" resultMap="DevMetadataResult">
+        <include refid="selectDevMetadataVo"/>
+        <where>
+            <if test="name != null  and name != ''">and name like concat('%', #{name}, '%')</if>
+            <if test="tableName != null  and tableName != ''">and table_name like concat('%', #{tableName}, '%')</if>
+            <if test="className != null  and className != ''">and class_name like concat('%', #{className}, '%')</if>
+            <if test="packageName != null  and packageName != ''">and package_name like concat('%', #{packageName},
+                '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="Long" resultMap="DevMetadataResult">
+        <include refid="selectDevMetadataVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="DevMetadata" useGeneratedKeys="true" keyProperty="id">
+        insert into dev_metadata
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="version != null">version,</if>
+            <if test="name != null">name,</if>
+            <if test="tableName != null">table_name,</if>
+            <if test="className != null">class_name,</if>
+            <if test="packageName != null">package_name,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="version != null">#{version},</if>
+            <if test="name != null">#{name},</if>
+            <if test="tableName != null">#{tableName},</if>
+            <if test="className != null">#{className},</if>
+            <if test="packageName != null">#{packageName},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="DevMetadata">
+        update dev_metadata
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="version != null">version = #{version},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="tableName != null">table_name = #{tableName},</if>
+            <if test="className != null">class_name = #{className},</if>
+            <if test="packageName != null">package_name = #{packageName},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="Long">
+        delete from dev_metadata where id = #{id}
+    </delete>
+
+    <delete id="deleteByIds" parameterType="String">
+        delete from dev_metadata where id in
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

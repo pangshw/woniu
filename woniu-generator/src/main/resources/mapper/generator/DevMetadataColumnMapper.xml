@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniu.generator.infra.mapper.DevMetadataColumnMapper">
+
+    <resultMap type="DevMetadataColumn" id="DevMetadataColumnResult">
+        <result property="id" column="id"/>
+        <result property="version" column="version"/>
+        <result property="metadataId" column="metadata_id"/>
+        <result property="name" column="name"/>
+        <result property="tableField" column="table_field"/>
+        <result property="dataType" column="data_type"/>
+        <result property="size" column="size"/>
+        <result property="scale" column="scale"/>
+        <result property="javaType" column="java_type"/>
+        <result property="remark" column="remark"/>
+        <result property="javaField" column="java_field"/>
+        <result property="seqNo" column="seq_no"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <sql id="selectDevMetadataColumnVo">
+        select id, version, metadata_id, name, table_field, data_type, size, scale, java_type, remark, java_field, seq_no, create_time, update_time from dev_metadata_column
+    </sql>
+
+    <select id="list" parameterType="DevMetadataColumn" resultMap="DevMetadataColumnResult">
+        <include refid="selectDevMetadataColumnVo"/>
+        <where>
+            <if test="metadataId != null ">and metadata_id = #{metadataId}</if>
+            <if test="name != null  and name != ''">and name like concat('%', #{name}, '%')</if>
+            <if test="tableField != null  and tableField != ''">and table_field = #{tableField}</if>
+            <if test="dataType != null  and dataType != ''">and data_type = #{dataType}</if>
+            <if test="size != null ">and size = #{size}</if>
+            <if test="scale != null ">and scale = #{scale}</if>
+            <if test="javaType != null  and javaType != ''">and java_type = #{javaType}</if>
+            <if test="javaField != null  and javaField != ''">and java_field = #{javaField}</if>
+            <if test="seqNo != null ">and seq_no = #{seqNo}</if>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="Long" resultMap="DevMetadataColumnResult">
+        <include refid="selectDevMetadataColumnVo"/>
+        where id = #{id}
+    </select>
+    <select id="findAllByMetadataId" parameterType="Long" resultMap="DevMetadataColumnResult">
+        <include refid="selectDevMetadataColumnVo"/>
+        where metadata_id = #{metadataId}
+        order by seq_no
+    </select>
+
+    <insert id="insert" parameterType="DevMetadataColumn" useGeneratedKeys="true" keyProperty="id">
+        insert into dev_metadata_column
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="version != null">version,</if>
+            <if test="metadataId != null">metadata_id,</if>
+            <if test="name != null">name,</if>
+            <if test="tableField != null">table_field,</if>
+            <if test="dataType != null">data_type,</if>
+            <if test="size != null">size,</if>
+            <if test="scale != null">scale,</if>
+            <if test="javaType != null">java_type,</if>
+            <if test="remark != null">remark,</if>
+            <if test="javaField != null">java_field,</if>
+            <if test="seqNo != null">seq_no,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="version != null">#{version},</if>
+            <if test="metadataId != null">#{metadataId},</if>
+            <if test="name != null">#{name},</if>
+            <if test="tableField != null">#{tableField},</if>
+            <if test="dataType != null">#{dataType},</if>
+            <if test="size != null">#{size},</if>
+            <if test="scale != null">#{scale},</if>
+            <if test="javaType != null">#{javaType},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="javaField != null">#{javaField},</if>
+            <if test="seqNo != null">#{seqNo},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="DevMetadataColumn">
+        update dev_metadata_column
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="version != null">version = #{version},</if>
+            <if test="metadataId != null">metadata_id = #{metadataId},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="tableField != null">table_field = #{tableField},</if>
+            <if test="dataType != null">data_type = #{dataType},</if>
+            <if test="size != null">size = #{size},</if>
+            <if test="scale != null">scale = #{scale},</if>
+            <if test="javaType != null">java_type = #{javaType},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="javaField != null">java_field = #{javaField},</if>
+            <if test="seqNo != null">seq_no = #{seqNo},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="Long">
+        delete from dev_metadata_column where id = #{id}
+    </delete>
+
+    <delete id="deleteByIds" parameterType="String">
+        delete from dev_metadata_column where id in
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <delete id="deleteByMetadataId" parameterType="Long">
+        delete from dev_metadata_column where metadata_id = #{metadataId}
+    </delete>
+
+</mapper>
