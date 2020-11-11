@@ -1,3 +1,2 @@
 rootProject.name = 'woniu'
-include 'woniu-admin'
-
+include 'woniu-core'
