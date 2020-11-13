@@ -49,8 +49,8 @@ export async function genPreview(id: number) {
 
 export async function genDownload(ids: any) {
   return request('http://47.93.127.115:8100/api/metadata/gen/download', {
-    method: 'post',
-    data: {
+    method: 'get',
+    params: {
       ids: ids
     },
     requestType: 'form',

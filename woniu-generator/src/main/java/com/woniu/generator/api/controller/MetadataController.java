@@ -45,7 +45,7 @@ public class MetadataController extends BaseController {
     }
 
     @ApiOperation("批量生成后下载")
-    @RequestMapping(value = "/gen/download", method = RequestMethod.POST)
+    @RequestMapping(value = "/gen/download", method = RequestMethod.GET)
     private void genDownload(@RequestParam List<Long> ids,
                              HttpServletResponse response) throws IOException {
         byte[] bytes = codeGeneratService.download(ids);
