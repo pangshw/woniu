@@ -9,9 +9,9 @@ spring:
     name: woniu-generator
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:log4jdbc:mysql://localhost:3306/pm-admin?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/pm-admin?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=UTC
     username: root
-    password: pang!(&*1103
+    password: 123456
 
 mybatis:
   type-aliases-package: com.woniu.**.entity

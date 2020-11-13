@@ -13,6 +13,7 @@ const EditForm = (props: any) => {
   const [items, setItems] = useState([]); //明细行
   const [scroll, setScroll] = useState({}); //表格的控制
 
+  const [form] = Form.useForm();
   const {Option} = Select;
 
   const calcScroll = () => {
@@ -94,8 +95,6 @@ const EditForm = (props: any) => {
     setItems(ds);
   };
 
-  const [form] = Form.useForm();
-
   const columns = [
     {
       title: '名称',
@@ -129,14 +128,14 @@ const EditForm = (props: any) => {
       title: '长度',
       dataIndex: 'size',
       width: 100,
-      render: (text: string, record: any) => <InputNumber value={text}
+      render: (text: any, record: any) => <InputNumber value={text}
                                                           onChange={(value: number) => onCellChange({size: value}, record)}/>,
     },
     {
       title: '精度',
       dataIndex: 'scale',
       width: 100,
-      render: (text: string, record: any) => <InputNumber value={text}
+      render: (text: any, record: any) => <InputNumber value={text}
                                                           onChange={(value: number) => onCellChange({scale: value}, record)}/>,
     },
     {

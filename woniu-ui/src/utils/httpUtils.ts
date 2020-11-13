@@ -1,3 +1,6 @@
+/**
+ * 开始下载
+ */
 export const startDownload = (res: any, fileName: string) => {
   let blob = new Blob([res], {type: 'application/octet-stream'});
   if (window.navigator.msSaveOrOpenBlob) {
