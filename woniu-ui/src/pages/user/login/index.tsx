@@ -49,14 +49,20 @@ const Login: React.FC<{}> = () => {
           <Form form={form} onFinish={onLogin}>
             <Row gutter={8}>
               <Col span={16} push={4}>
-                <Form.Item name="userName" rules={[{required: true, message: "请输入用户名"}]}>
+                <Form.Item
+                  name="userName"
+                  initialValue="admin"
+                  rules={[{required: true, message: "请输入用户名"}]}>
                   <Input placeholder="请输入用户名" prefix={<UserOutlined/>}></Input>
                 </Form.Item>
               </Col>
             </Row>
             <Row gutter={8}>
               <Col span={16} push={4}>
-                <Form.Item name="password" rules={[{required: true, message: "请输入密码"}]}>
+                <Form.Item
+                  name="password"
+                  initialValue="admin"
+                  rules={[{required: true, message: "请输入密码"}]}>
                   <Input type="password" placeholder="请输入密码" prefix={<LockOutlined/>}></Input>
                 </Form.Item>
               </Col>
