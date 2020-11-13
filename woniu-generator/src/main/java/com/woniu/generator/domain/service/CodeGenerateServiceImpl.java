@@ -1,6 +1,5 @@
 package com.woniu.generator.domain.service;
 
-import com.woniu.GeneratorApplication;
 import com.woniu.generator.config.CodeGenerateConfig;
 import com.woniu.generator.domain.dto.MetaDTO;
 import com.woniu.generator.domain.repository.DevMetadataRepository;
@@ -42,7 +41,7 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
 
         configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
         configuration.setDefaultEncoding(Charset.forName("UTF-8").name());
-        configuration.setTemplateLoader(new ClassTemplateLoader(CodeGenerateServiceImpl.class,"/templates/"));
+        configuration.setTemplateLoader(new ClassTemplateLoader(CodeGenerateServiceImpl.class, "/templates/"));
     }
 
     /**
@@ -280,7 +279,7 @@ public class CodeGenerateServiceImpl implements CodeGenerateService {
             writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(f)));
             template.process(dataModel, writer);
             writer.flush();
-            log.info("--------------------" + f.getName() + " 文件创建成功 !");
+            log.info("代码生成 " + filePath + " 文件创建成功");
         } catch (Exception err) {
             log.error("代码生成", err);
         } finally {

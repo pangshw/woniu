@@ -17,3 +17,7 @@ export const startDownload = (res: any, fileName: string) => {
     window.URL.revokeObjectURL(href); // 释放掉blob对象
   }
 }
+
+export const apiServer = () =>{
+  return 'http://47.93.127.115';
+}
