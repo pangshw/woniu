@@ -32,7 +32,7 @@ public class MetadataController extends BaseController {
 
     @ApiOperation("预览")
     @RequestMapping(value = "/gen/preview", method = RequestMethod.POST)
-    private List<SimpleDTO> genPreview(@RequestParam Long id) {
+    private List<SimpleDTO> genPreview(Long id) {
         Map<String, String> map = codeGeneratService.preview(id);
         List<SimpleDTO> result = new ArrayList<>();
         for (String key : map.keySet()) {
@@ -45,8 +45,8 @@ public class MetadataController extends BaseController {
     }
 
     @ApiOperation("批量生成后下载")
-    @RequestMapping(value = "/gen/download", method = RequestMethod.GET)
-    private void genDownload(@RequestParam List<Long> ids,
+    @RequestMapping(value = "/gen/download", method = RequestMethod.POST)
+    private void genDownload(List<Long> ids,
                              HttpServletResponse response) throws IOException {
         byte[] bytes = codeGeneratService.download(ids);
         writeZip(response, bytes, "数据建模.zip");
@@ -54,7 +54,7 @@ public class MetadataController extends BaseController {
 
     @ApiOperation("批量生成至目录")
     @RequestMapping(value = "/gen/local", method = RequestMethod.POST)
-    private void genLocal(@RequestParam List<Long> ids) {
+    private void genLocal(List<Long> ids) {
         codeGeneratService.execute(ids);
     }
 
@@ -67,7 +67,7 @@ public class MetadataController extends BaseController {
 
     @ApiOperation("详情")
     @RequestMapping(value = "/get", method = RequestMethod.POST)
-    private MetaDTO get(@RequestParam Long id) {
+    private MetaDTO get(Long id) {
         MetaDTO dto = metadataRepository.getMetaById(id);
         return dto;
     }
@@ -80,7 +80,7 @@ public class MetadataController extends BaseController {
 
     @ApiOperation("删除")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    private void delete(@RequestParam List<Long> ids) {
+    private void delete(List<Long> ids) {
         metadataRepository.deleteMeta(ids);
     }
 }
