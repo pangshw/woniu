@@ -14,7 +14,7 @@
 
 ## 内置功能
 
-1. 代码生成：后端代码的生成（java、html、xml、sql）支持CRUD下载 。
+1. 代码生成：后端代码的生成（java、html、xml、sql）支持CRUD下载
 
 ## 在线体验
 
