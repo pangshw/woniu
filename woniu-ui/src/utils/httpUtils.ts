@@ -11,6 +11,7 @@ export const startDownload = (res: any, fileName: string) => {
     let href = window.URL.createObjectURL(blob); // 创建下载的链接
     downloadElement.href = href;
     downloadElement.download = fileName; // 下载后文件名
+    console.log(downloadElement);
     document.body.appendChild(downloadElement);
     downloadElement.click(); // 点击下载
     document.body.removeChild(downloadElement); // 下载完成移除元素

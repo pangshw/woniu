@@ -53,7 +53,7 @@ export async function genDownload(ids: any) {
     params: {
       ids: ids
     },
-    requestType: 'form',
+    responseType : 'blob',
   });
 }
 

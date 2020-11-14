@@ -74,6 +74,11 @@ const Metadata = (props: any) => {
 
   const onGenDownload = async (ids: any) => {
     const res = await genDownload(ids);
+    if (res instanceof Blob){
+      console.log('res instanceof Blob');
+    }else{
+      message.warning('Some error messages...', 5);
+    }
     startDownload(res, "数据建模.zip");
   }
 
