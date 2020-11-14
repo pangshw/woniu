@@ -11,6 +11,7 @@
 演示地址：http://47.93.127.115 
 
 ## 微信公众号
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1114/224259_0512276e_1799057.jpeg "qrcode_for_gh_7e4bc660acfa_258.jpg")
 
 ## 演示图
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1114/210355_d40c8b66_1799057.png "p1.png")
