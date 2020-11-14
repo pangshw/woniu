@@ -15,3 +15,6 @@
 
 ## 演示图
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1114/210355_d40c8b66_1799057.png "p1.png")
+
+## 微信群
+![输入图片说明](https://images.gitee.com/uploads/images/2020/1114/231513_0a0d9cc2_1799057.png "qun.png")
