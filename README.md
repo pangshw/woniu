@@ -18,7 +18,9 @@
 
 ## 在线体验
 
-演示地址：http://47.93.127.115 
+演示地址：http://47.93.127.115
+gitub: https://github.com/pangshw/woniu
+gitee: https://gitee.com/pangshw/woniu
 
 ## 微信公众号
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1114/224259_0512276e_1799057.jpeg "qrcode_for_gh_7e4bc660acfa_258.jpg")
