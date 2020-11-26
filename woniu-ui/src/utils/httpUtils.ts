@@ -22,5 +22,5 @@ export const startDownload = (res: any, fileName: string) => {
 }
 
 export const apiServer = () => {
-  return 'http://47.93.127.115';
+  return 'http://api.woniu365.net';
 }
