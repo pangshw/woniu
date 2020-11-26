@@ -32,7 +32,7 @@ gitee: https://gitee.com/pangshw/woniu
 
 # 版本历史
  
-## v1.0.0 2020-11-26
+## v1.1.0 2020-11-26
 1、前端UI全新改版，去掉react ant design pro，直接采用react ant design
 2、采用"领域--应用--菜单分组--菜单"四层导航结构
 3、支持多标签页，支持多标页切换时保持上次打开的状态
