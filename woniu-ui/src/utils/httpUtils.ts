@@ -1,8 +1,10 @@
+import { useAliveController } from 'umi';
+
 /**
  * 开始下载
  */
 export const startDownload = (res: any, fileName: string) => {
-  let blob = new Blob([res], {type: 'application/octet-stream'});
+  let blob = new Blob([res], { type: 'application/octet-stream' });
   if (window.navigator.msSaveOrOpenBlob) {
     console.log('msSaveOrOpenBlob');
     navigator.msSaveBlob(blob, fileName)
@@ -19,6 +21,6 @@ export const startDownload = (res: any, fileName: string) => {
   }
 }
 
-export const apiServer = () =>{
+export const apiServer = () => {
   return 'http://47.93.127.115';
 }

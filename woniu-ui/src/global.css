@@ -1,0 +1,24 @@
+.ant-layout {
+  background: rgb(255,255,255)
+}
+
+.ant-tabs-top > .ant-tabs-nav{
+  margin: 0px;
+}
+
+.ant-layout-header{
+  height: 50px;
+  line-height: 50px;
+}
+
+.ant-page-header-heading-title{
+  font-weight: 500;
+}
+
+.page-content {
+  padding: 0 16px;
+}
+
+.scroll-other{
+
+}
