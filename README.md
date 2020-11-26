@@ -26,15 +26,19 @@ gitub: https://github.com/pangshw/woniu
 
 gitee: https://gitee.com/pangshw/woniu
 
-# 微信公众号
-![输入图片说明](https://images.gitee.com/uploads/images/2020/1114/224259_0512276e_1799057.jpeg "qrcode_for_gh_7e4bc660acfa_258.jpg")
-
 # 演示图
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1126/230511_7c563220_1799057.png "导航.png")
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1126/230546_8f0649cc_1799057.png "列表.png")
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/1126/230555_dc30a705_1799057.png "详情.png")
+
+
+# 联系我们
+| 微信公众号 | QQ群 |
+|-------|-----|
+|![输入图片说明](https://images.gitee.com/uploads/images/2020/1114/224259_0512276e_1799057.jpeg "qrcode_for_gh_7e4bc660acfa_258.jpg")|![输入图片说明](https://images.gitee.com/uploads/images/2020/1126/231431_b200a6a4_1799057.png "蜗牛365交流群群聊二维码.png")     |
+
 
 # 版本历史
 
