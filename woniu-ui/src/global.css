@@ -6,6 +6,7 @@
   margin: 0px;
 }
 
+/* 标题栏 */
 .ant-layout-header{
   height: 50px;
   line-height: 50px;
@@ -15,10 +16,13 @@
   font-weight: 500;
 }
 
+/* 内容区 */
 .page-content {
-  padding: 0 16px;
+  background: white;
+  margin: 8px;
 }
 
-.scroll-other{
-
+/* 明细行，或者列表的表格 */
+.page-items {
+  padding: 0 16px;
 }

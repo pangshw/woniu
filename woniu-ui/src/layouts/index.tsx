@@ -14,6 +14,13 @@ const index = (props: any) => {
   const [activeKey, setActiveKey] = useState("");
 
   useEffect(() => {
+
+  }, [])
+
+  useEffect(() => {
+    //自动计算工作区高度
+    document.getElementById("content").style.height = (document.body.clientHeight - 90) + "px";
+
     // console.log(getCachingNodes());
     let thisKey = props.location.pathname;
     let title = props.location.pathname === "/" ? "首页" :
@@ -94,9 +101,6 @@ const index = (props: any) => {
     })
   }
 
-  const onTabTitle = () => {
-  }
-
   return (
     <Layout className="layout">
       <Header className="header scroll-other" style={{ paddingLeft: 32 }}>
@@ -119,7 +123,7 @@ const index = (props: any) => {
         activeKey={activeKey}
         onChange={onTabChange}
         onEdit={onTabRemove}
-        style={{ paddingLeft: 16, paddingRight: 8 }}
+        style={{ paddingLeft: 16, paddingRight: 8, background: "white" }}
         className="scroll-other"
       >
         {
@@ -128,7 +132,7 @@ const index = (props: any) => {
           })
         }
       </Tabs>
-      <Content>
+      <Content id="content">
         {props.children}
       </Content>
     </Layout>

@@ -197,7 +197,7 @@ const EditForm = (props: any) => {
         </Row>
       </Form>
     </PageHeader>
-    <div className="page-content">
+    <div className="page-items">
       <Row className="scroll-other" justify="space-between">
         <Col>
           <h1>字段信息</h1>

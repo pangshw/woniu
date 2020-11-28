@@ -26,7 +26,7 @@ const index = (props: any) => {
   }, [props])
 
   return (
-    <Layout style={{ padding: 8 }}>
+    <Layout style={{ padding: 8, margin: 0}}>
       <Tabs style={{ marginBottom: 16, marginLeft: 16 }}>
         {
           rootNode && rootNode.children ?

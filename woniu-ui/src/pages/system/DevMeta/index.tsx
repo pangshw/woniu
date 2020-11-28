@@ -27,10 +27,9 @@ const Metadata = (props: any) => {
 
   // console.log(TAG);
   // console.log(props);
-
   useEffect(() => {
     startSearch();
-  }, [props.location])
+  }, [])
 
   const startSearch = () => {
     form.submit();
@@ -197,7 +196,7 @@ const Metadata = (props: any) => {
         </Form.Item>
       </Form>
     </PageHeader>
-    <div className="page-content">
+    <div className="page-items">
       <Table columns={columns} dataSource={data} rowKey="id" size="middle" bordered />
     </div>
   </Layout>;
