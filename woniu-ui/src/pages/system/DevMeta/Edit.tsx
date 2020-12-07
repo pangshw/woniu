@@ -4,6 +4,9 @@ import { getMetadata, saveMetadata } from "./service";
 import { v4 as uuid } from "uuid";
 import { KeepAlive, withRouter } from 'umi';
 import { PlusOutlined, MinusOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+import { Content } from 'antd/lib/layout/layout';
+import { EDIT_FORM_ITEM_LAYOUT, EDIT_FORM_ROW_LAYOUT, FORM_COL_3_LAYOUT, FORM_COL_4_LAYOUT } from '@/utils/constants';
+import { tableScrollHeight } from '@/utils/common';
 
 const TAG = "Metadata.EditForm";
 const EditForm = (props: any) => {
@@ -13,21 +16,9 @@ const EditForm = (props: any) => {
 
   const [data, setData] = useState({}); //主单
   const [items, setItems] = useState<any[]>([]); //明细行
-  const [scroll, setScroll] = useState({}); //表格的控制
 
   const [form] = Form.useForm();
   const { Option } = Select;
-
-  const calcScroll = () => {
-    let h = document.body.clientHeight
-      - document.getElementsByClassName("ant-table-thead")[0].clientHeight
-      - 4;
-    var elements = document.getElementsByClassName('scroll-other');
-    Array.prototype.forEach.call(elements, function (element) {
-      h -= element.clientHeight;
-    });
-    setScroll({ y: h });
-  };
 
   useEffect(() => {
     console.log(`${TAG} useEffect`);
@@ -44,14 +35,11 @@ const EditForm = (props: any) => {
             item._uid = uuid();
           });
           setItems(ds);
-          //计算滚动条
-          calcScroll();
         }
       })();
     } else {
       form.resetFields();
       setItems([]);
-      calcScroll();
     }
   }, []);
 
@@ -158,8 +146,8 @@ const EditForm = (props: any) => {
     },
   ];
 
-  return <Layout>
-    <PageHeader title='数据建模' className="scroll-other"
+  return <Layout className="page-workspace">
+    <PageHeader title='数据建模'
       extra={
         <>
           <Button type="primary"
@@ -170,24 +158,26 @@ const EditForm = (props: any) => {
             }}>保存</Button>
         </>
       }>
-      <Form form={form} onFinish={onSave}>
-        <Row justify="start" gutter={16} className="other">
-          <Col span={8}>
+    </PageHeader>
+    <Content className="page-content">
+      <Form form={form} onFinish={onSave} {...EDIT_FORM_ITEM_LAYOUT}>
+        <Row {...EDIT_FORM_ROW_LAYOUT}>
+          <Col {...FORM_COL_4_LAYOUT}>
             <Form.Item label="实体" name="name" rules={[{ required: true, message: "请输入实体名称" }]}>
               <Input />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col {...FORM_COL_4_LAYOUT}>
             <Form.Item label="表名称" name="tableName" rules={[{ required: true, message: "请输入表名称" }]}>
               <Input />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col {...FORM_COL_4_LAYOUT}>
             <Form.Item label="实体类名称" name="className" rules={[{ required: true, message: "请输入实体类名称" }]}>
               <Input />
             </Form.Item>
           </Col>
-          <Col span={8}>
+          <Col {...FORM_COL_4_LAYOUT}>
             <Form.Item label="生成包路径" name="packageName"
               rules={[{ required: true, message: "请输入生成包路径" }]}
               required tooltip="生成在哪个java包下">
@@ -196,9 +186,7 @@ const EditForm = (props: any) => {
           </Col>
         </Row>
       </Form>
-    </PageHeader>
-    <div className="page-items">
-      <Row className="scroll-other" justify="space-between">
+      <Row justify="space-between">
         <Col>
           <h1>字段信息</h1>
         </Col>
@@ -216,9 +204,9 @@ const EditForm = (props: any) => {
         dataSource={items}
         rowKey="_uid"
         pagination={false}
-        scroll={scroll}
+        scroll={{ y: tableScrollHeight() }}
         size="small"></Table>
-    </div>
+    </Content>
   </Layout>;
 }
 

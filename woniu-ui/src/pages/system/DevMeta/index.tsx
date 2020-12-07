@@ -14,7 +14,8 @@ import { deleteMetadata, genDownload, genLocal, listMetadata } from "./service";
 import { authRoute, startDownload } from "@/utils/httpUtils";
 import { fixContext, KeepAlive, useAliveController, withRouter } from 'umi';
 import FormItem from 'antd/lib/form/FormItem';
-import { LayoutContext } from 'antd/lib/layout/layout';
+import { Content, Header, LayoutContext } from 'antd/lib/layout/layout';
+import { FORM_COL_4_LAYOUT, SEARCH_FORM_ITEM_LAYOUT, SEARCH_FORM_ROW_LAYOUT } from '@/utils/constants';
 
 const TAG = "Metadata.List";
 const Metadata = (props: any) => {
@@ -151,7 +152,7 @@ const Metadata = (props: any) => {
     },
   ];
 
-  return <Layout>
+  return <Layout className="page-workspace">
     <PageHeader
       title="代码生成"
       backIcon={false}
@@ -172,34 +173,43 @@ const Metadata = (props: any) => {
         </>
       }
     >
-      <Form layout="inline" form={form} onFinish={onSearch}>
-        <Form.Item label="实体" name="name">
-          <Input />
-        </Form.Item>
-        <Form.Item label="表名称" name="tableName">
-          <Input />
-        </Form.Item>
-        <Form.Item label="实体类名称" name="className">
-          <Input />
-        </Form.Item>
-
-        <Form.Item>
-          <Button type="primary" icon={<SearchOutlined />} onClick={() => {
-            startSearch();
-          }}>搜索</Button>
-        </Form.Item>
-        <Form.Item>
-          <Button icon={<ReloadOutlined />} onClick={() => {
-            form.resetFields();
-            startSearch();
-          }}>重置</Button>
-        </Form.Item>
-      </Form>
     </PageHeader>
-    <div className="page-items">
-      <Table columns={columns} dataSource={data} rowKey="id" size="middle" bordered />
-    </div>
-  </Layout>;
+    <Content className="page-content">
+      <Form form={form} onFinish={onSearch} className="more-fields-search-form" {...SEARCH_FORM_ITEM_LAYOUT}>
+        <Row {...SEARCH_FORM_ROW_LAYOUT}>
+          <Col {...FORM_COL_4_LAYOUT}>
+            <Form.Item label="实体" name="name">
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col {...FORM_COL_4_LAYOUT}>
+            <Form.Item label="表名称" name="tableName">
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col {...FORM_COL_4_LAYOUT}>
+            <Form.Item label="实体类名称" name="className">
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col {...FORM_COL_4_LAYOUT}>
+            <Form.Item>
+              <Space>
+                <Button type="primary" icon={<SearchOutlined />} onClick={() => {
+                  startSearch();
+                }}>搜索</Button>
+                <Button icon={<ReloadOutlined />} onClick={() => {
+                  form.resetFields();
+                  startSearch();
+                }}>重置</Button>
+              </Space>
+            </Form.Item>
+          </Col>
+        </Row>
+      </Form>
+      <Table columns={columns} dataSource={data} rowKey="id" size="small" bordered />
+    </Content>
+  </Layout >;
 };
 
 export default withRouter((props: any) => {

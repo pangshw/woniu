@@ -1,6 +1,6 @@
-.ant-layout {
+/* .ant-layout {
   background: rgb(255,255,255)
-}
+} */
 
 .ant-tabs-top > .ant-tabs-nav{
   margin: 0px;
@@ -8,21 +8,45 @@
 
 /* 标题栏 */
 .ant-layout-header{
-  height: 50px;
-  line-height: 50px;
+  height: 40px;
+  line-height: 40px;
 }
 
+/*工作区*/
+.page-workspace {
+height: calc(100vh - 40px - 40px);
+}
+/*工作区header*/
+.ant-page-header{
+  background: rgb(255,255,255);
+  padding: 0px 16px;
+}
+
+/* 工作区标题 */
 .ant-page-header-heading-title{
   font-weight: 500;
 }
 
-/* 内容区 */
-.page-content {
-  background: white;
-  margin: 8px;
+.ant-page-header-heading-left {
+  margin: 0;
 }
 
-/* 明细行，或者列表的表格 */
-.page-items {
-  padding: 0 16px;
+/*工作区内容部分*/
+.page-content {
+  margin: 8px;
+  padding: 16px 8px;
+  background-color: #fff;
+}
+
+/*搜索表单*/
+.more-fields-search-form .ant-form-item{
+  margin-bottom: 16px;
+}
+
+/*表格*/
+.ant-table .ant-table-thead > tr > th {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #333;
+  padding: 14px 8px;
+  border-bottom: 1.1px solid rgba(0, 0, 0, 0.16);
 }

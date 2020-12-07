@@ -19,7 +19,7 @@ const index = (props: any) => {
 
   useEffect(() => {
     //自动计算工作区高度
-    document.getElementById("content").style.height = (document.body.clientHeight - 90) + "px";
+    document.getElementById("content").style.height = (document.body.clientHeight - 80) + "px";
 
     // console.log(getCachingNodes());
     let thisKey = props.location.pathname;
@@ -103,7 +103,7 @@ const index = (props: any) => {
 
   return (
     <Layout className="layout">
-      <Header className="header scroll-other" style={{ paddingLeft: 32 }}>
+      <Header style={{ paddingLeft: 32 }}>
         <div className="logo" style={{ float: 'left', color: "white", fontSize: 18 }}>
           <img src={require('@/assets/logo.png')} style={{ width: 32, height: 32 }}></img>
           <span style={{ margin: '0 8px' }}>蜗牛365</span>
@@ -124,7 +124,6 @@ const index = (props: any) => {
         onChange={onTabChange}
         onEdit={onTabRemove}
         style={{ paddingLeft: 16, paddingRight: 8, background: "white" }}
-        className="scroll-other"
       >
         {
           tabs.map((item) => {
