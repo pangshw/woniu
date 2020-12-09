@@ -62,7 +62,7 @@ export const FORM_COL_4_LAYOUT = {
 };
 
 // 查询表单 拥有 超过两个字段时 表单字段的布局
-export const SEARCH_FORM_ITEM_LAYOUT = {
+export const SEARCH_FORM_LAYOUT = {
   labelCol: {
     span: 10,
   },

@@ -15,7 +15,7 @@ import { authRoute, startDownload } from "@/utils/httpUtils";
 import { fixContext, KeepAlive, useAliveController, withRouter } from 'umi';
 import FormItem from 'antd/lib/form/FormItem';
 import { Content, Header, LayoutContext } from 'antd/lib/layout/layout';
-import { FORM_COL_4_LAYOUT, SEARCH_FORM_ITEM_LAYOUT, SEARCH_FORM_ROW_LAYOUT } from '@/utils/constants';
+import { FORM_COL_4_LAYOUT, SEARCH_FORM_LAYOUT, SEARCH_FORM_ROW_LAYOUT } from '@/utils/constants';
 
 const TAG = "Metadata.List";
 const Metadata = (props: any) => {
@@ -175,7 +175,7 @@ const Metadata = (props: any) => {
     >
     </PageHeader>
     <Content className="page-content">
-      <Form form={form} onFinish={onSearch} className="more-fields-search-form" {...SEARCH_FORM_ITEM_LAYOUT}>
+      <Form form={form} onFinish={onSearch} className="more-fields-search-form" {...SEARCH_FORM_LAYOUT}>
         <Row {...SEARCH_FORM_ROW_LAYOUT}>
           <Col {...FORM_COL_4_LAYOUT}>
             <Form.Item label="实体" name="name">

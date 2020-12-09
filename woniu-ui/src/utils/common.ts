@@ -5,6 +5,7 @@ export function tableScrollHeight() {
   }
   let h = dom.clientHeight
     - parseInt(getStyle(dom, 'marginTop')) - parseInt(getStyle(dom, 'marginBottom'))
+    - parseInt(getStyle(dom, 'paddingTop')) - parseInt(getStyle(dom, 'paddingBottom'))
     - document.getElementsByClassName("ant-table-thead")[0].clientHeight;
 
   dom.childNodes.forEach((item: any, index) => {

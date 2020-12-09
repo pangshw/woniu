@@ -19,7 +19,7 @@ const index = (props: any) => {
 
   useEffect(() => {
     //自动计算工作区高度
-    document.getElementById("content").style.height = (document.body.clientHeight - 80) + "px";
+    // document.getElementById("content").style.height = (document.body.clientHeight - 100) + "px";
 
     // console.log(getCachingNodes());
     let thisKey = props.location.pathname;
