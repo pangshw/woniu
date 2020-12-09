@@ -1,9 +1,10 @@
-import { Breadcrumb, Button, Card, Col, Divider, Layout, List, Row, Space, Tabs, Tag } from 'antd'
+import { Breadcrumb, Button, Card, Col, Divider, Layout, List, PageHeader, Row, Space, Tabs, Tag } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { AppstoreOutlined, CaretRightOutlined } from '@ant-design/icons'
 import menu from './menu'
 import { withRouter } from 'umi'
 import './index.less'
+import { Content } from 'antd/lib/layout/layout'
 
 const index = (props: any) => {
 
@@ -26,25 +27,27 @@ const index = (props: any) => {
   }, [props])
 
   return (
-    <Layout style={{ padding: 8, margin: 0}}>
-      <Tabs style={{ marginBottom: 16, marginLeft: 16 }}>
+    <Layout className="page-workspace">
+      <Content className="page-content">
+        <Tabs style={{ marginBottom: 16, marginLeft: 8 }}>
+          {
+            rootNode && rootNode.children ?
+              rootNode.children.map((item: any) => {
+                // console.log(item);
+                return <Tabs.TabPane tab={item.title} key={item.title}></Tabs.TabPane>
+              })
+              : <></>
+          }
+        </Tabs>
         {
           rootNode && rootNode.children ?
             rootNode.children.map((item: any) => {
               // console.log(item);
-              return <Tabs.TabPane tab={item.title} key={item.title}></Tabs.TabPane>
+              return <AppItem {...props} node={item} key={item.title}></AppItem>
             })
             : <></>
         }
-      </Tabs>
-      {
-        rootNode && rootNode.children ?
-          rootNode.children.map((item: any) => {
-            // console.log(item);
-            return <AppItem {...props} node={item} key={item.title}></AppItem>
-          })
-          : <></>
-      }
+      </Content>
     </Layout >
   )
 }
@@ -54,9 +57,11 @@ const AppItem = (props: any) => {
     <>
       <Row gutter={16}>
         <Col />
-        <Col style={{ display: 'flex', alignItems: 'center', paddingRight: 0 }}><div style={{ backgroundColor: '#1890ff', width: 2, height: '80%' }}></div></Col>
-        <Col style={{ color: '#1890ff' }} >{props.node.title}</Col>
-        <Col flex="auto" style={{ display: 'flex', alignItems: 'center' }}><div style={{ flexGrow: 1, borderTop: '1px dotted #1890ff' }}></div></Col>
+        <Col style={{ display: 'flex', alignItems: 'center', paddingLeft: 0, paddingRight: 0 }}>
+          <div className="app-item-bar"></div>
+        </Col>
+        <Col className="app-item-title" >{props.node.title}</Col>
+        <Col flex="auto" className="app-item-ext-line-flex"><div className="app-item-ext-line"></div></Col>
       </Row>
       <Row gutter={16}>
         {props.node.children.map((item: any) => {
@@ -81,7 +86,7 @@ const MenuGroup = (props: any) => {
               return <List.Item
                 className="nav-menu"
                 key={item.title}
-                style={{ padding: 4, display: "flex", justifyContent: 'flex-start' }}
+                style={{ padding: 2, display: "flex", justifyContent: 'flex-start' }}
                 onClick={() => {
                   props.history.push({ pathname: item.path, state: { title: item.title } });
                 }}>

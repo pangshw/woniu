@@ -2,6 +2,10 @@
   background: rgb(255,255,255)
 } */
 
+:root {
+  --main-color:#06c;
+}
+
 .ant-tabs-top > .ant-tabs-nav{
   margin: 0px;
 }
@@ -60,4 +64,11 @@
 
 .ant-table .ant-btn-sm {
   font-size: 12px;
+}
+
+.ant-card-small > .ant-card-head{
+  padding: 0 8px;
+}
+.ant-card-small > .ant-card-body{
+  padding: 8px;
 }
