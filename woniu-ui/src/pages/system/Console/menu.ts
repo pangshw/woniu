@@ -355,11 +355,11 @@ export default {
     },
     {
       path: '/system/console',
-      title: '系统管理',
+      title: '数字化建模',
       children: [
         {
           path: '',
-          title: '系统工具',
+          title: '应用构建',
           children: [
             {
               path: '',
