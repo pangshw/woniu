@@ -1,9 +1,9 @@
-import {request} from 'umi';
+import { request } from '@/utils/request';
 
 const TAG = "service";
 
 export async function listMetadata(params: any) {
-  return request('http://api.woniu365.net/api/metadata/list', {
+  return request('/api/metadata/list', {
     method: 'post',
     data: params,
     requestType: 'form',
@@ -11,14 +11,14 @@ export async function listMetadata(params: any) {
 }
 
 export async function saveMetadata(params: any) {
-  return request('http://api.woniu365.net/api/metadata/save', {
+  return request('/api/metadata/save', {
     method: 'post',
     data: params,
   });
 }
 
 export async function getMetadata(id: number) {
-  return request('http://api.woniu365.net/api/metadata/get', {
+  return request('/api/metadata/get', {
     method: 'post',
     data: {
       id,
@@ -28,7 +28,7 @@ export async function getMetadata(id: number) {
 }
 
 export async function deleteMetadata(id: number) {
-  return request('http://api.woniu365.net/api/metadata/delete', {
+  return request('/api/metadata/delete', {
     method: 'post',
     data: {
       ids: Array.of(id)
@@ -38,7 +38,7 @@ export async function deleteMetadata(id: number) {
 }
 
 export async function genPreview(id: number) {
-  return request('http://api.woniu365.net/api/metadata/gen/preview', {
+  return request('/api/metadata/gen/preview', {
     method: 'post',
     data: {
       id: id
@@ -48,7 +48,7 @@ export async function genPreview(id: number) {
 }
 
 export async function genDownload(ids: any) {
-  return request('http://api.woniu365.net/api/metadata/gen/download', {
+  return request('/api/metadata/gen/download', {
     method: 'post',
     data: {
       ids: ids
@@ -59,7 +59,7 @@ export async function genDownload(ids: any) {
 }
 
 export async function genLocal(ids: any) {
-  return request('http://api.woniu365.net/api/metadata/gen/local', {
+  return request('/api/metadata/gen/local', {
     method: 'post',
     data: {
       ids: ids

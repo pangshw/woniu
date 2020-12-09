@@ -1,5 +1,3 @@
-import { useAliveController } from 'umi';
-
 /**
  * 开始下载
  */
@@ -19,8 +17,4 @@ export const startDownload = (res: any, fileName: string) => {
     document.body.removeChild(downloadElement); // 下载完成移除元素
     window.URL.revokeObjectURL(href); // 释放掉blob对象
   }
-}
-
-export const apiServer = () => {
-  return 'http://api.woniu365.net';
 }
