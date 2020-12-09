@@ -28,7 +28,7 @@ const index = (props: any) => {
 
   return (
     <Layout className="page-workspace">
-      <Content className="page-content">
+      <PageHeader title="">
         <Tabs style={{ marginBottom: 16, marginLeft: 8 }}>
           {
             rootNode && rootNode.children ?
@@ -39,6 +39,8 @@ const index = (props: any) => {
               : <></>
           }
         </Tabs>
+      </PageHeader>
+      <Content className="page-content">
         {
           rootNode && rootNode.children ?
             rootNode.children.map((item: any) => {
