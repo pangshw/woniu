@@ -105,7 +105,7 @@ const index = (props: any) => {
     <Layout className="layout">
       <Header style={{ paddingLeft: 32 }}>
         <div className="logo" style={{ float: 'left', color: "white", fontSize: 18 }}>
-          <img src={require('@/assets/logo.png')} style={{ width: 32, height: 32 }}></img>
+          <img src={require('@/assets/logo.png')} style={{ width: 24, height: 24, marginBottom: 4 }}></img>
           <span style={{ margin: '0 8px' }}>蜗牛365</span>
         </div>
 
